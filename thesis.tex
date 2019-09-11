@@ -1,0 +1,30 @@
+\documentclass{techne}
+\title{Techné}
+\begin{document}
+	\thispagestyle{empty}
+	\maketitle
+	
+\chapter{Lorem Ipsum}
+\lipsum[3]
+\section{This is a title with symbols like $\NN$}
+\lipsum[5]
+\begin{definition}
+	Un \emph{enunciato} è una formula senza variabili libere; una \emph{($L$-)teoria} è un insieme di enunciati nel linguaggio $L$. Fissata una struttura $\cl{M}$, scriviamo $\cl{M} \satisfies T$ per indicare che $\cl{M} \satisfies \phi$ per ogni $\phi \in T$. Scriviamo $T \follows S$ se per ogni $\phi \in S$ ed ogni struttura $\cl{M}$ si ha che $\cl{M} \satisfies T \implies \cl{M} \satisfies \phi$. Se $T \follows S$ and $S \follows T$ diciamo che $T$ ed $S$ sono \emph{logicamente equivalenti}.
+\end{definition}
+\lipsum[5]
+
+\subsection{This is a smaller title}
+\lipsum[5]
+\begin{theorem}[condizione sufficiente]
+	Sia $X$ un insieme. Sia $B \subseteq \powerset{X}$ tale che:
+	\begin{itemize}
+		\item $\bigcup\limits_{\cl{U} \in B}\cl{U} = X$,
+		\item  per ogni $\cl{U}, \cl{V} \in B$ e per ogni $x \in \cl{U} \cap \cl{V}$ esiste $\cl{W} \in B$ tale che $x \in \cl{W} \subseteq \cl{U} \cap \cl{V}$.
+	\end{itemize}
+	Allora $B$ è una base per una topologia su $X$, $\tau_{B} = \{\cl{Y} \subseteq X \ \vert \ \cl{Y} \ \text{è unione di elementi di} \ B\}$.
+\end{theorem}
+\begin{proof}
+\lipsum[5]
+\end{proof}
+\lipsum[4]
+\end{document}
