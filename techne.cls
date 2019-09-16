@@ -11,6 +11,10 @@ cleardoublepage=empty,
 numbers=noenddot,
 titlepage,]{memoir}
 \setsecnumdepth{subsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						 PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{
 	amsmath,
 amsfonts,
@@ -34,10 +38,10 @@ titlesec,
 tikz,
 thmtools,
 stmaryrd,
-lipsum
+lipsum,
+fontspec,
+marginnote
 }
-
-\definecolor{679}{HTML}{318A8C}
 
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage[T1]{fontenc}
@@ -47,6 +51,14 @@ lipsum
 \RequirePackage[tocgraduated]{tocstyle}
 \usetocstyle{allwithdot}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						 COLOURS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{679}{HTML}{318A8C}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						 THEOREMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newtheoremstyle{custom-up}% name of the style to be used
 {6pt}% measure of space to leave above the theorem. E.g.: 3pt
 {3pt}% measure of space to leave below the theorem. E.g.: 3pt
@@ -83,12 +95,10 @@ lipsum
 \newtheorem*{question}{question}
 \newtheorem{definition}{definition}[section]
 
-
 \theoremstyle{custom-wt}
 \newtheorem*{example}{example}
 \newtheorem*{remark}{remark}
 \newtheorem*{claim}{claim}
-
 
 \theoremstyle{custom-it}
 \newtheorem{theorem}[definition]{theorem}
@@ -108,13 +118,13 @@ lipsum
 
 \titleformat{\chapter}[display]
 {\filcenter\large}
-{\fontsize{60}{70}{\fontfamily{pag}{\bfseries\thechapter}}}
+{\fontsize{50}{60}{\fontfamily{pag}\fbox{\bfseries\thechapter}}}
 {0pt}
 {\fontsize{25}{35}\scshape}
 
 \titleformat{\section}[hang]
 {\large}
-{\fontsize{20}{25}{\fontfamily{pag}{{\bfseries\textcolor{679}{\thesection}}  \hspace{0.05cm} {\Large |} \hspace{0.07cm}}}}
+{\fontsize{20}{25}{\fontfamily{pag}{{\bfseries\textcolor{679}{\fbox{\thesection}}} \hspace{0.07cm}}}}
 {0pt}
 {\fontsize{20}{25}\scshape}
 
@@ -124,7 +134,9 @@ lipsum
 {0pt}
 {\fontsize{17}{20}\bfseries}
 
-%% quanta fatica per lo spazio sopra proof
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						 PROOF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \declaretheoremstyle[%
 spaceabove=-4pt,%
 spacebelow=6pt,%
@@ -139,14 +151,14 @@ qed=\qedsymbol%
 	\end{prf}\ignorespacesafterend
 }
 
-%%% FONTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						 SHORTCUTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\bb}[1]{\mathbb{#1}}
 \newcommand{\ds}[1]{\mathds{#1}}
 \newcommand{\fk}[1]{\mathfrak{#1}}
 \newcommand{\sff}[1]{\mathsf{#1}}
 \newcommand{\cl}[1]{\mathcal{#1}}
-
-%%%% SYMBOLS
 \newcommand{\comp}[1]{#1^{\mathsf{c}}}
 \newcommand{\powerset}[1]{\cl{P}(#1)}
 \newcommand{\finset}[1]{\cl{P}_{\mathsf{fin}}(#1)}
@@ -159,8 +171,6 @@ qed=\qedsymbol%
 \newcommand{\meet}{\land}
 \newcommand{\join}{\lor}
 \newcommand{\onto}{\twoheadrightarrow}
-
-%% STRUCTURES
 \newcommand{\NN}{\struct{N}}
 \newcommand{\QQ}{\struct{Q}}
 \newcommand{\ZZ}{\struct{Z}}
@@ -168,8 +178,6 @@ qed=\qedsymbol%
 \newcommand{\CC}{\struct{C}}
 \newcommand{\Q}[1]{\struct{Q}_{#1}}
 \newcommand{\Z}[1]{\struct{Z}_{#1}}
-
-%%% MISC
 \renewcommand{\emph}[1]{\textbf{#1}}
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\leq}{\leqslant}
@@ -179,17 +187,15 @@ qed=\qedsymbol%
 \newcommand{\satisfies}{\vDash}
 \newcommand{\follows}{\vdash}
 
-%% TESI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						 BIB
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 \RequirePackage{hyperref}
 
-\newcommand{\ns}[1]{{{}^{*}\!{#1}}}
-\newcommand{\completion}{\mathbb{R}_{\Lambda}}
-\newcommand{\lambdalim}[1]{\lim\limits_{\lambda \uparrow \Lambda}{#1}}
-\newcommand{\tbd}{\colorbox{red!80}{\textbf{\textsf{TBD}}}}
-\newcommand{\prob}{\textbf{P}}
-
-%%%% fancyhdr
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%						 HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{fancy}
 \fancyhead[LE,RO]{Techné: a thesis template}
 \fancyhead[LO,RE]{\leftmark}
